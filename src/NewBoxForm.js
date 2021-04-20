@@ -26,12 +26,18 @@ class NewBoxForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor='height'>Height</label>
-                <input name='height' type="text" value={this.state.height} onChange={this.handleChange}></input>
-                <label htmlFor='width'>Width</label>
-                <input name='width' type='text' value={this.state.width} onChange={this.handleChange}></input>
-                <label htmlFor='color'>backgroundColor:</label>
-                <input name='color' type='text' value={this.state.color} onChange={this.handleChange}></input>
+                <div>
+                    <label htmlFor='height'>Height</label>
+                    <input name='height' type="text" value={this.state.height} onChange={this.handleChange} id="height"></input>
+                </div>
+                <div>
+                    <label htmlFor='width'>Width</label>
+                    <input name='width' type='text' value={this.state.width} onChange={this.handleChange} id="width"></input>
+                </div>
+                <div>
+                    <label htmlFor='color'>backgroundColor:</label>
+                    <input name='color' type='text' value={this.state.color} onChange={this.handleChange} id="color"></input>
+                </div>
                 <button>Add Box!</button>
             </form>
         )

@@ -8,7 +8,7 @@ class Boxlist extends Component {
         super(props);
         this.state = {boxes: []};
         this.addBox = this.addBox.bind(this);
-        this.renderBox = this.renderBox.bind(this);
+        // this.renderBox = this.renderBox.bind(this);
         this.delete = this.delete.bind(this);
     }
 
@@ -22,27 +22,25 @@ class Boxlist extends Component {
     }
 
     delete(id){
-        //find box with key 
-        //filter  and rerender 
-        console.log("key is ", id);
         const newArr = this.state.boxes.filter(e => e.id !== id);
-        console.log(newArr);
         
         this.setState({boxes: newArr});
     }
 
-    renderBox(){
-        console.log(this.state);
-        return this.state.boxes.map( e => (
-            <Box height={e.height} width={e.width} color={e.color} id={e.id} delete={this.delete}/>
-        ))
-    }
+    // renderBox(){
+    //     return this.state.boxes.map( e => (
+    //         <Box height={e.height} width={e.width} color={e.color} id={e.id} delete={this.delete}/>
+    //     ))
+    // }
 
     render(){
+        const boxes = this.state.boxes.map(e => (
+            <Box height={e.height} width={e.width} color={e.color} key={e.id} id={e.id} delete={this.delete}/>
+        ))
         return(
             <div>
                 <NewBoxForm addBox={this.addBox}/>
-                {this.renderBox()}
+                {boxes}
             </div>
         )
     }
